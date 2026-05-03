@@ -1,0 +1,25 @@
+model: claude-sonnet-4-20250514
+max_tokens: 4096
+
+scanner:
+  languages: [python, javascript, typescript]
+  debt_types:
+    - circular_dependency
+    - duplicate_code
+    - deprecated_api
+    - long_function
+    - high_complexity
+
+planner:
+  cot_rounds: 3
+  max_tasks_per_run: 10
+  risk_threshold: 0.7
+
+executor:
+  branch_prefix: "arch-agent/"
+  auto_pr: true
+  pr_reviewers: []
+
+verifier:
+  max_fix_rounds: 3
+  wait_seconds: 60
